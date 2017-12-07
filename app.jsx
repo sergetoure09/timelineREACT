@@ -1,87 +1,15 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import Header from './header.jsx'
+import Content from './content.jsx'
 
 class App extends React.Component{
     render(){
         return(
             <div className="notificationsFrame">
             <div className="panel">
-              <div className="header">
-    
-                <div className="menuIcon">
-                  <div className="dashTop"></div>
-                  <div className="dashBottom"></div>
-                  <div className="circle"></div>
-                </div>
-    
-                <span className="title">Timeline</span>
-    
-                <input
-                  type="text"
-                  className="searchInput"
-                  placeholder="Search ..." />
-    
-                <div className="fa fa-search searchIcon"></div>
-              </div>
-              <div className="content">
-                <div className="line"></div>
-                <div className="item">
-    
-                  <div className="avatar">
-                    <img
-                    alt='doug'
-                    src="http://www.croop.cl/UI/twitter/images/doug.jpg" />
-                  </div>
-    
-                  <span className="time">
-                    An hour ago
-                  </span>
-                  <p>Ate lunch</p>
-                  <div className="commentCount">
-                    2
-                  </div>
-                </div>
-    
-                <div className="item">
-                  <div className="avatar">
-                    <img
-                      alt='doug' src="http://www.croop.cl/UI/twitter/images/doug.jpg" />
-                  </div>
-    
-                  <span className="time">10 am</span>
-                  <p>Read Day two article</p>
-                  <div className="commentCount">
-                    1
-                  </div>
-                </div>
-    
-                <div className="item">
-                  <div className="avatar">
-                    <img
-                      alt='doug' src="http://www.croop.cl/UI/twitter/images/doug.jpg" />
-                  </div>
-    
-                  <span className="time">10 am</span>
-                  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                  <div className="commentCount">
-                    10
-                  </div>
-                </div>
-    
-                <div className="item">
-                  <div className="avatar">
-                    <img
-                      alt='doug' src="http://www.croop.cl/UI/twitter/images/doug.jpg" />
-                  </div>
-    
-                  <span className="time">2:21 pm</span>
-                  <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
-                  <div className="commentCount">
-                    26
-                  </div>
-                </div>
-    
-              </div>
+             <Header />
+             <Content />
             </div>
           </div>
         )
