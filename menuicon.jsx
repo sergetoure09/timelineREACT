@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 
 
 class MenuIcon extends React.Component{
-    rener(){
+    render(){
         return(
         <div className="menuIcon">
             <div className="dashTop"></div>

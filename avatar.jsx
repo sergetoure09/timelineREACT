@@ -5,10 +5,11 @@ class Avatar extends React.Component{
     render(){
         let {user}=this.props
         return(
-            <div class="avatar">
+            <div className="avatar">
                 <img
                 alt={user.alt}
                 src={user.src}/>
+                <h5>{user.name}</h5>
           </div>
         )
     }

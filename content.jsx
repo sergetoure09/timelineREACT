@@ -10,9 +10,9 @@ class Content extends React.Component{
             <div className="line"></div>
             {/* for each activity item*/}
 
-            {activities}.map((activity)=>{
-                <ActivityItem activity={activity}/>
-            })
+            {activities.map((activity)=> 
+            <ActivityItem key={activity.key} activity={activity}/>
+        )}
           
        
 

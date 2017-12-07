@@ -18317,36 +18317,44 @@ var App = function (_React$Component) {
     key: 'render',
     value: function render() {
       var activities = [{
+        key: 1,
         user: {
           alt: 'doug',
-          src: "http://www.croop.cl/UI/twitter/images/doug.jpg"
+          src: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+          name: ''
         },
         time: '10 am',
         comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         commentCount: 4
 
       }, {
+        key: 2,
         user: {
           alt: 'Mark',
-          src: "http://www.croop.cl/UI/twitter/images/doug.jpg"
+          src: "http://www.croop.cl/UI/twitter/images/carl.jpg",
+          name: ''
         },
-        time: '8 pmm',
+        time: '8 pm',
         comment: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
         commentCount: 9
 
       }, {
+        key: 3,
         user: {
           alt: 'Rek',
-          src: "http://www.croop.cl/UI/twitter/images/doug.jpg"
+          src: "http://www.croop.cl/UI/twitter/images/russel.jpg",
+          name: ''
         },
         time: '12 am',
         comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
         commentCount: 4
 
       }, {
+        key: 4,
         user: {
           alt: 'Fel',
-          src: "http://www.croop.cl/UI/twitter/images/doug.jpg"
+          src: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+          name: ''
         },
         time: '2 pm',
         comment: 'Read Day two article',
@@ -18478,8 +18486,8 @@ var MenuIcon = function (_React$Component) {
     }
 
     _createClass(MenuIcon, [{
-        key: 'rener',
-        value: function rener() {
+        key: 'render',
+        value: function render() {
             return _react2.default.createElement(
                 'div',
                 { className: 'menuIcon' },
@@ -18604,10 +18612,9 @@ var Content = function (_React$Component) {
                 'div',
                 { className: 'content' },
                 _react2.default.createElement('div', { className: 'line' }),
-                activities,
-                '.map((activity)=>',
-                _react2.default.createElement(_activityitem2.default, { activity: activity }),
-                ')'
+                activities.map(function (activity) {
+                    return _react2.default.createElement(_activityitem2.default, { key: activity.key, activity: activity });
+                })
             );
         }
     }]);
@@ -18738,10 +18745,15 @@ var Avatar = function (_React$Component) {
 
             return _react2.default.createElement(
                 'div',
-                { 'class': 'avatar' },
+                { className: 'avatar' },
                 _react2.default.createElement('img', {
                     alt: user.alt,
-                    src: user.src })
+                    src: user.src }),
+                _react2.default.createElement(
+                    'h5',
+                    null,
+                    user.name
+                )
             );
         }
     }]);
