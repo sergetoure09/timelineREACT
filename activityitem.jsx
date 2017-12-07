@@ -5,16 +5,17 @@ import Avatar from './avatar.jsx'
 
 class ActivityItem extends React.Component{
     render(){
+        let {activity}=this.props
         
         return(
             <div className="item">
-                    <Avatar />
+                    <Avatar user={activity.user}/>
                     <span className="time">
-                        {props.time}
+                        {activity.time}
                     </span>
-                    <p>{props.comment}</p>
+                    <p>{activity.comment}</p>
                     <div className="commentCount">
-                        {props.commentCount}
+                        {activity.commentCount}
                     </div>
             </div>
         )

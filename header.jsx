@@ -10,7 +10,7 @@ class Header extends React.Component{
         return(
             <div className="header">
                 <MenuIcon />
-                        <span className="title">{props.title}</span>
+                        <span className="title">{this.props.title}</span>
                 <Search />
             
                         
