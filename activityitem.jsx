@@ -4,18 +4,24 @@ import Avatar from './avatar.jsx'
 
 
 class ActivityItem extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            activity:this.props.activity
+        }
+    }
     render(){
-        let {activity}=this.props
+       
         
         return(
             <div className="item">
-                    <Avatar user={activity.user}/>
+                    <Avatar user={this.state.activity.user}/>
                     <span className="time">
-                        {activity.time}
+                        {this.state.activity.time}
                     </span>
-                    <p>{activity.comment}</p>
+                    <p>{this.state.activity.comment}</p>
                     <div className="commentCount">
-                        {activity.commentCount}
+                        {this.state.activity.commentCount}
                     </div>
             </div>
         )

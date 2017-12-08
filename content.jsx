@@ -3,15 +3,23 @@ import ReactDOM from 'react-dom'
 import ActivityItem from './activityitem.jsx'
 
 class Content extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            activities:this.props.activities
+        }
+    }
+
+       
     render(){
-        let {activities}=this.props
+        
         return(
             <div className="content">
             <div className="line"></div>
             {/* for each activity item*/}
 
-            {activities.map((activity)=> 
-            <ActivityItem key={activity.key} activity={activity}/>
+            {this.state.activities.map((activity)=> 
+            <ActivityItem key={activity.key.toString()} activity={activity}/>
         )}
           
        

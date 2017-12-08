@@ -4,6 +4,7 @@ import Header from './header.jsx'
 import Content from './content.jsx'
 
 class App extends React.Component{
+
     render(){
       var activities=[
         {
@@ -60,6 +61,7 @@ class App extends React.Component{
         }
      
       ]
+      
         return(
             <div className="notificationsFrame">
               <div className="panel">

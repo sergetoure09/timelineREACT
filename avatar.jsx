@@ -2,14 +2,20 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 
 class Avatar extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            user:this.props.user
+        }
+    }
     render(){
-        let {user}=this.props
+        
         return(
             <div className="avatar">
-            <h5>{user.name}</h5>
+            <h5>{this.state.user.name}</h5>
                 <img
-                alt={user.alt}
-                src={user.src}/>
+                alt={this.state.user.alt}
+                src={this.state.user.src}/>
                 
           </div>
         )

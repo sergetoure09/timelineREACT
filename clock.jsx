@@ -3,11 +3,25 @@ import ReactDOM from 'react-dom'
 
 
 class Clock extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            date:new Date().toLocaleTimeString()
+        }
+    }
+componentDidMount(){
+   setInterval(
+        () => this.setState({
+            date:new Date().toLocaleTimeString()
+        }),1000)  
+}
+
+
     render(){
-        this.props=new Date().toLocaleTimeString()
+        
         return(
         <span>
-        {this.props}
+        {this.state.date}
         </span>
         
         )

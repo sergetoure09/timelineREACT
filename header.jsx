@@ -6,11 +6,18 @@ import Search from './search.jsx'
 
 
 class Header extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            title:this.props.title,
+           
+        }
+    }
     render(){
         return(
             <div className="header">
                 <MenuIcon />
-                        <span className="title">{this.props.title}</span>
+                        <span className="title">{this.state.title}</span>
                 <Search />
             
                         
