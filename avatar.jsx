@@ -6,10 +6,11 @@ class Avatar extends React.Component{
         let {user}=this.props
         return(
             <div className="avatar">
+            <h5>{user.name}</h5>
                 <img
                 alt={user.alt}
                 src={user.src}/>
-                <h5>{user.name}</h5>
+                
           </div>
         )
     }

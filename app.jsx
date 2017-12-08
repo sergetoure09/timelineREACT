@@ -62,10 +62,10 @@ class App extends React.Component{
       ]
         return(
             <div className="notificationsFrame">
-            <div className="panel">
-             <Header title="Activity Timeline"/>
-             <Content activities={activities}/>
-            </div>
+              <div className="panel">
+              <Header title="Activity Timeline"/>
+              <Content activities={activities}/>
+              </div>
           </div>
         )
     }

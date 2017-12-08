@@ -222,7 +222,6 @@
   .demo .notificationsFrame .content .item .commentCount:hover:after {
     color: lightblue;
   }
- 
   .demo .notificationsFrame .footer {
     position: relative;
     background: #fff;
@@ -244,17 +243,4 @@
   }
   .demo .notificationsFrame .footer button i {
     margin: 0 10px;
-  }
-  .clock {
-    width: 300px;
-    height: 90px;
-    padding: 50px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-weight: bold;
-    color: white;
-    font-size: 3em;
-    background-color:#168bf1;
-    border-radius: 10px;
-    text-align: center;
-
   }
