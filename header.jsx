@@ -5,6 +5,7 @@ import Search from './search.jsx'
 
 
 
+
 class Header extends React.Component{
     constructor(props){
         super(props);
@@ -12,6 +13,14 @@ class Header extends React.Component{
             title:this.props.title
            
         }
+    
+    }
+    componentDidMount(){
+       
+
+        this.setState({
+            title:"Timeline"
+        })
     }
     render(){
         return(

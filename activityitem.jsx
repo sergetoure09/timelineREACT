@@ -10,6 +10,7 @@ class ActivityItem extends React.Component{
             activity:this.props.activity
         }
     }
+    
     render(){
        
         

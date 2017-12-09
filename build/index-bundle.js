@@ -18329,7 +18329,7 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'panel' },
-          _react2.default.createElement(_header2.default, { title: 'Activity Timeline' }),
+          _react2.default.createElement(_header2.default, { title: '' }),
           _react2.default.createElement(_content2.default, { activities: activities }),
           _react2.default.createElement(
             'div',
@@ -18395,10 +18395,19 @@ var Header = function (_React$Component) {
             title: _this.props.title
 
         };
+
         return _this;
     }
 
     _createClass(Header, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+
+            this.setState({
+                title: "Timeline"
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -18582,6 +18591,35 @@ var Content = function (_React$Component) {
     }
 
     _createClass(Content, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.setState({
+                activities: [{
+                    key: 1,
+                    user: {
+                        alt: 'doug',
+                        src: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+                        name: ''
+                    },
+                    time: '10 am',
+                    comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+                    commentCount: 4
+
+                }, {
+                    key: 2,
+                    user: {
+                        alt: 'Mark',
+                        src: "http://www.croop.cl/UI/twitter/images/carl.jpg",
+                        name: ''
+                    },
+                    time: '8 pm',
+                    comment: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+                    commentCount: 9
+
+                }]
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
 

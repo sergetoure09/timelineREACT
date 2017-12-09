@@ -14,7 +14,7 @@ class App extends React.Component{
         return(
             <div className="notificationsFrame">
               <div className="panel">
-              <Header title="Activity Timeline"/>
+              <Header title=""/>
               <Content activities={activities}/>
               <div className="clock">
               <Clock />
