@@ -1,15 +1,21 @@
+body{
+  background-color: #F5F5F5;
+}
 .demo {
     position: relative;
+    
   }
   .demo .notificationsFrame {
     z-index: 2;
-    width: 100%;
+    width: 70%;
     top: 20px;
     background: #fff;
     border-radius: 3px;
     overflow: hidden;
     font-family: 'Open Sans', Helvetica, sans-serif;
-    margin-bottom: 40px;
+    margin: 0 auto;
+    border: 1px solid;
+    border-color: #e5e6e9 #dfe0e4 #d0d1d5;
   }
   .demo .notificationsFrame.show-menu {
     transform: translate3d(150px, 0, 0);
@@ -45,7 +51,7 @@
   .demo .notificationsFrame .header {
     position: relative;
     height: 60px;
-    background: #f70078;
+    background: #3b5998;
     padding-top: 0;
   }
  
@@ -254,7 +260,7 @@
     font-weight: bold;
     color: white;
     font-size: 3em;
-    background-color:#f70078;
+    background-color:#3b5998;
     border-radius: 10px;
     text-align: center;
 

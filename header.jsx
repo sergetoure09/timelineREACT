@@ -9,7 +9,7 @@ class Header extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            title:this.props.title,
+            title:this.props.title
            
         }
     }

@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import Header from './header.jsx'
 import Content from './content.jsx'
+import Clock from './clock.jsx'
 
 class App extends React.Component{
 
@@ -67,7 +68,11 @@ class App extends React.Component{
               <div className="panel">
               <Header title="Activity Timeline"/>
               <Content activities={activities}/>
+              <div className="clock">
+              <Clock />
               </div>
+              </div>
+             
           </div>
         )
     }

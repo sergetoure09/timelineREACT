@@ -998,18 +998,13 @@ var _app = __webpack_require__(27);
 
 var _app2 = _interopRequireDefault(_app);
 
-__webpack_require__(34);
-
-var _clock = __webpack_require__(39);
-
-var _clock2 = _interopRequireDefault(_clock);
+__webpack_require__(35);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var demo = document.querySelector(".demo");
 var clock = document.querySelector(".clock");
 _reactDom2.default.render(_react2.default.createElement(_app2.default, null), demo);
-_reactDom2.default.render(_react2.default.createElement(_clock2.default, null), clock);
 
 /***/ }),
 /* 16 */
@@ -18302,6 +18297,10 @@ var _content = __webpack_require__(31);
 
 var _content2 = _interopRequireDefault(_content);
 
+var _clock = __webpack_require__(34);
+
+var _clock2 = _interopRequireDefault(_clock);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -18375,7 +18374,12 @@ var App = function (_React$Component) {
           'div',
           { className: 'panel' },
           _react2.default.createElement(_header2.default, { title: 'Activity Timeline' }),
-          _react2.default.createElement(_content2.default, { activities: activities })
+          _react2.default.createElement(_content2.default, { activities: activities }),
+          _react2.default.createElement(
+            'div',
+            { className: 'clock' },
+            _react2.default.createElement(_clock2.default, null)
+          )
         )
       );
     }
@@ -18791,10 +18795,81 @@ exports.default = Avatar;
 /* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactDom = __webpack_require__(2);
+
+var _reactDom2 = _interopRequireDefault(_reactDom);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Clock = function (_React$Component) {
+    _inherits(Clock, _React$Component);
+
+    function Clock(props) {
+        _classCallCheck(this, Clock);
+
+        var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
+
+        _this.state = {
+            date: new Date().toLocaleTimeString()
+        };
+        return _this;
+    }
+
+    _createClass(Clock, [{
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            setInterval(function () {
+                return _this2.setState({
+                    date: new Date().toLocaleTimeString()
+                });
+            }, 1000);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+
+            return _react2.default.createElement(
+                'span',
+                null,
+                this.state.date
+            );
+        }
+    }]);
+
+    return Clock;
+}(_react2.default.Component);
+
+exports.default = Clock;
+
+/***/ }),
+/* 35 */
+/***/ (function(module, exports, __webpack_require__) {
+
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(35);
+var content = __webpack_require__(36);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // Prepare cssTransformation
 var transform;
@@ -18802,7 +18877,7 @@ var transform;
 var options = {"hmr":true}
 options.transform = transform
 // add the styles to the DOM
-var update = __webpack_require__(37)(content, options);
+var update = __webpack_require__(38)(content, options);
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -18819,21 +18894,21 @@ if(false) {
 }
 
 /***/ }),
-/* 35 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(36)(undefined);
+exports = module.exports = __webpack_require__(37)(undefined);
 // imports
 
 
 // module
-exports.push([module.i, ".demo {\n    position: relative;\n  }\n  .demo .notificationsFrame {\n    z-index: 2;\n    width: 100%;\n    top: 20px;\n    background: #fff;\n    border-radius: 3px;\n    overflow: hidden;\n    font-family: 'Open Sans', Helvetica, sans-serif;\n    margin-bottom: 40px;\n  }\n  .demo .notificationsFrame.show-menu {\n    transform: translate3d(150px, 0, 0);\n  }\n  .demo .notificationsFrame .searchInput {\n    border: 10px solid red;\n    box-sizing: border-box;\n    position: absolute;\n    top: 13px;\n    right: 55px;\n    width: 200px;\n    height: 34px;\n    border-radius: 17px;\n    border: none;\n    background: #fff;\n    padding: 0 17px;\n    font-size: 13px;\n    color: #666;\n    transition: all 0.3s ease-in-out;\n    transform: translateX(15px);\n    opacity: 0;\n    pointer-events: none;\n  }\n  .demo .notificationsFrame .searchInput:focus {\n    outline: none;\n  }\n  .demo .notificationsFrame .searchInput:active {\n    -webkit-transform: translateX(0);\n    transform: translateX(0);\n    opacity: 1;\n    pointer-events: all;\n  }\n  .demo .notificationsFrame .header {\n    position: relative;\n    height: 60px;\n    background: #f70078;\n    padding-top: 0;\n  }\n \n  .demo .notificationsFrame .header .menuIcon {\n    position: absolute;\n    width: 29px;\n    height: 15px;\n    top: 23px;\n    left: 20px;\n    cursor: pointer;\n  }\n  .demo .notificationsFrame .header .menuIcon:hover .dashTop, .demo .notificationsFrame .header .menuIcon:hover .dashBottom, .demo .notificationsFrame .header .menuIcon:hover .circle {\n    background: #fff;\n  }\n  .demo .notificationsFrame .header .menuIcon .dashTop {\n    position: absolute;\n    width: 20px;\n    height: 3px;\n    top: 0;\n    left: 0;\n    background: #b2daff;\n    border-radius: 3px;\n    -webkit-transition: all 0.2s ease-in-out;\n    transition: all 0.2s ease-in-out;\n  }\n  .demo .notificationsFrame .header .menuIcon .dashBottom {\n    position: absolute;\n    width: 20px;\n    height: 3px;\n    top: 0;\n    left: 0;\n    background: #b2daff;\n    border-radius: 3px;\n    -webkit-transition: all 0.2s ease-in-out;\n    transition: all 0.2s ease-in-out;\n    width: 29px;\n    top: auto;\n    bottom: 0;\n  }\n  .demo .notificationsFrame .header .menuIcon .circle {\n    position: absolute;\n    height: 7px;\n    width: 7px;\n    border-radius: 4px;\n    top: -2px;\n    right: 0;\n    background: #b2daff;\n    -webkit-transition: all 0.2s ease-in-out;\n    transition: all 0.2s ease-in-out;\n  }\n  .demo .notificationsFrame .header .title {\n    display: block;\n    text-align: center;\n    color: #fff;\n    font-weight: 600;\n    font-size: 15px;\n    \n  }\n  .demo .notificationsFrame .header .searchIcon {\n    position: absolute;\n    z-index: 3;\n    font-size: 21px;\n    color: #fff;\n    top: 18px;\n    right: 20px;\n    -webkit-transition: all 0.3s ease;\n    transition: all 0.3s ease;\n    cursor: pointer;\n  }\n  .demo .notificationsFrame .header .searchIcon:hover {\n    color: #fff;\n  }\n  .demo .notificationsFrame .content {\n    position: relative;\n    height: 100%;\n    overflow: hidden;\n  }\n  .demo .notificationsFrame .content .line {\n    position: absolute;\n    top: 0;\n    left: 40px;\n    bottom: 0;\n    width: 3px;\n    background: #ebebeb;\n  }\n  .demo .notificationsFrame .content .item {\n    position: relative;\n    z-index: 2;\n    margin: 20px 30px 30px 70px;\n    display: block;\n    /*border-radius: 50%;\n     border: 5px solid #ecf0f1;\n     box-sizing: border-box;\n     position: absolute;\n     height: 20px;\n     width: 20px;\n     background: #fff;\n     border: 2px solid #5F98CD;\n     box-shadow: 0 0 0 3px #fff;*/\n  }\n  .demo .notificationsFrame .content .item:hover {\n    color: #5f98cd;\n    cursor: pointer;\n  }\n  .demo .notificationsFrame .content .item .circle {\n    box-sizing: border-box;\n    position: absolute;\n    height: 11px;\n    width: 11px;\n    background: #fff;\n    border: 2px solid #5f98cd;\n    box-shadow: 0 0 0 3px #fff;\n    border-radius: 6px;\n    top: 0;\n    left: -20px;\n  }\n  .demo .notificationsFrame .content .item .avatar {\n    position: absolute;\n    height: 40px;\n    width: 40px;\n    display: inline-block;\n    vertical-align: top;\n    overflow: hidden;\n    left: -49px;\n  }\n  .demo .notificationsFrame .content .item .avatar img {\n    width: 100%;\n    -webkit-border-radius: 50%;\n    -moz-border-radius: 50%;\n    -ms-border-radius: 50%;\n    -o-border-radius: 50%;\n    border-radius: 50%;\n    position: absolute;\n    left: 0;\n    top: 0;\n  }\n  .demo .notificationsFrame .content .item .time {\n    display: block;\n    font-size: 11px;\n    line-height: 11px;\n    margin-bottom: 2px;\n  }\n  .demo .notificationsFrame .content .item p {\n    font-size: 15px;\n    line-height: 20px;\n    margin: 0px 40px 0px 0px;\n    font-family: 'Open Sans', Lora, Times, no-serif;\n  }\n  .demo .notificationsFrame .content .item p b {\n    font-weight: 600;\n  }\n  .demo .notificationsFrame .content .item .right {\n    position: absolute;\n    right: 5px;\n    font-size: 11px;\n    top: 11px;\n  }\n  .demo .notificationsFrame .content .item .commentCount {\n    position: absolute;\n    right: 15px;\n    font-size: 12px;\n    top: 11px;\n  }\n  .demo .notificationsFrame .content .item .commentCount:after {\n    content: \"\\F075\";\n    font-family: FontAwesome;\n    position: absolute;\n    font-size: 20px;\n    color: #ebebeb;\n    top: -50%;\n    left: 100%;\n    margin-left: 10px;\n    z-index: 3;\n  }\n  .demo .notificationsFrame .content .item .commentCount:hover:after {\n    color: lightblue;\n  }\n \n  .demo .notificationsFrame .footer {\n    position: relative;\n    background: #fff;\n    margin: auto;\n    height: 30px;\n    border-top: 1px solid #eee;\n    width: 100%;\n    border-radius: 10px;\n  }\n  .demo .notificationsFrame .footer button {\n    background: #eee;\n    position: absolute;\n    width: 100%;\n    right: 0px;\n    left: 0px;\n    top: 0px;\n    bottom: 0px;\n    border: 0;\n  }\n  .demo .notificationsFrame .footer button i {\n    margin: 0 10px;\n  }\n  .clock {\n    width: 600px;\n    height: 50px;\n    padding: 20px;\n    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    \n    font-weight: bold;\n    color: white;\n    font-size: 3em;\n    background-color:#f70078;\n    border-radius: 10px;\n    text-align: center;\n\n  }", ""]);
+exports.push([module.i, "body{\n  background-color: #F5F5F5;\n}\n.demo {\n    position: relative;\n    \n  }\n  .demo .notificationsFrame {\n    z-index: 2;\n    width: 70%;\n    top: 20px;\n    background: #fff;\n    border-radius: 3px;\n    overflow: hidden;\n    font-family: 'Open Sans', Helvetica, sans-serif;\n    margin: 0 auto;\n    border: 1px solid;\n    border-color: #e5e6e9 #dfe0e4 #d0d1d5;\n  }\n  .demo .notificationsFrame.show-menu {\n    transform: translate3d(150px, 0, 0);\n  }\n  .demo .notificationsFrame .searchInput {\n    border: 10px solid red;\n    box-sizing: border-box;\n    position: absolute;\n    top: 13px;\n    right: 55px;\n    width: 200px;\n    height: 34px;\n    border-radius: 17px;\n    border: none;\n    background: #fff;\n    padding: 0 17px;\n    font-size: 13px;\n    color: #666;\n    transition: all 0.3s ease-in-out;\n    transform: translateX(15px);\n    opacity: 0;\n    pointer-events: none;\n  }\n  .demo .notificationsFrame .searchInput:focus {\n    outline: none;\n  }\n  .demo .notificationsFrame .searchInput:active {\n    -webkit-transform: translateX(0);\n    transform: translateX(0);\n    opacity: 1;\n    pointer-events: all;\n  }\n  .demo .notificationsFrame .header {\n    position: relative;\n    height: 60px;\n    background: #3b5998;\n    padding-top: 0;\n  }\n \n  .demo .notificationsFrame .header .menuIcon {\n    position: absolute;\n    width: 29px;\n    height: 15px;\n    top: 23px;\n    left: 20px;\n    cursor: pointer;\n  }\n  .demo .notificationsFrame .header .menuIcon:hover .dashTop, .demo .notificationsFrame .header .menuIcon:hover .dashBottom, .demo .notificationsFrame .header .menuIcon:hover .circle {\n    background: #fff;\n  }\n  .demo .notificationsFrame .header .menuIcon .dashTop {\n    position: absolute;\n    width: 20px;\n    height: 3px;\n    top: 0;\n    left: 0;\n    background: #b2daff;\n    border-radius: 3px;\n    -webkit-transition: all 0.2s ease-in-out;\n    transition: all 0.2s ease-in-out;\n  }\n  .demo .notificationsFrame .header .menuIcon .dashBottom {\n    position: absolute;\n    width: 20px;\n    height: 3px;\n    top: 0;\n    left: 0;\n    background: #b2daff;\n    border-radius: 3px;\n    -webkit-transition: all 0.2s ease-in-out;\n    transition: all 0.2s ease-in-out;\n    width: 29px;\n    top: auto;\n    bottom: 0;\n  }\n  .demo .notificationsFrame .header .menuIcon .circle {\n    position: absolute;\n    height: 7px;\n    width: 7px;\n    border-radius: 4px;\n    top: -2px;\n    right: 0;\n    background: #b2daff;\n    -webkit-transition: all 0.2s ease-in-out;\n    transition: all 0.2s ease-in-out;\n  }\n  .demo .notificationsFrame .header .title {\n    display: block;\n    text-align: center;\n    color: #fff;\n    font-weight: 600;\n    font-size: 15px;\n    \n  }\n  .demo .notificationsFrame .header .searchIcon {\n    position: absolute;\n    z-index: 3;\n    font-size: 21px;\n    color: #fff;\n    top: 18px;\n    right: 20px;\n    -webkit-transition: all 0.3s ease;\n    transition: all 0.3s ease;\n    cursor: pointer;\n  }\n  .demo .notificationsFrame .header .searchIcon:hover {\n    color: #fff;\n  }\n  .demo .notificationsFrame .content {\n    position: relative;\n    height: 100%;\n    overflow: hidden;\n  }\n  .demo .notificationsFrame .content .line {\n    position: absolute;\n    top: 0;\n    left: 40px;\n    bottom: 0;\n    width: 3px;\n    background: #ebebeb;\n  }\n  .demo .notificationsFrame .content .item {\n    position: relative;\n    z-index: 2;\n    margin: 20px 30px 30px 70px;\n    display: block;\n    /*border-radius: 50%;\n     border: 5px solid #ecf0f1;\n     box-sizing: border-box;\n     position: absolute;\n     height: 20px;\n     width: 20px;\n     background: #fff;\n     border: 2px solid #5F98CD;\n     box-shadow: 0 0 0 3px #fff;*/\n  }\n  .demo .notificationsFrame .content .item:hover {\n    color: #5f98cd;\n    cursor: pointer;\n  }\n  .demo .notificationsFrame .content .item .circle {\n    box-sizing: border-box;\n    position: absolute;\n    height: 11px;\n    width: 11px;\n    background: #fff;\n    border: 2px solid #5f98cd;\n    box-shadow: 0 0 0 3px #fff;\n    border-radius: 6px;\n    top: 0;\n    left: -20px;\n  }\n  .demo .notificationsFrame .content .item .avatar {\n    position: absolute;\n    height: 40px;\n    width: 40px;\n    display: inline-block;\n    vertical-align: top;\n    overflow: hidden;\n    left: -49px;\n  }\n  .demo .notificationsFrame .content .item .avatar img {\n    width: 100%;\n    -webkit-border-radius: 50%;\n    -moz-border-radius: 50%;\n    -ms-border-radius: 50%;\n    -o-border-radius: 50%;\n    border-radius: 50%;\n    position: absolute;\n    left: 0;\n    top: 0;\n  }\n  .demo .notificationsFrame .content .item .time {\n    display: block;\n    font-size: 11px;\n    line-height: 11px;\n    margin-bottom: 2px;\n  }\n  .demo .notificationsFrame .content .item p {\n    font-size: 15px;\n    line-height: 20px;\n    margin: 0px 40px 0px 0px;\n    font-family: 'Open Sans', Lora, Times, no-serif;\n  }\n  .demo .notificationsFrame .content .item p b {\n    font-weight: 600;\n  }\n  .demo .notificationsFrame .content .item .right {\n    position: absolute;\n    right: 5px;\n    font-size: 11px;\n    top: 11px;\n  }\n  .demo .notificationsFrame .content .item .commentCount {\n    position: absolute;\n    right: 15px;\n    font-size: 12px;\n    top: 11px;\n  }\n  .demo .notificationsFrame .content .item .commentCount:after {\n    content: \"\\F075\";\n    font-family: FontAwesome;\n    position: absolute;\n    font-size: 20px;\n    color: #ebebeb;\n    top: -50%;\n    left: 100%;\n    margin-left: 10px;\n    z-index: 3;\n  }\n  .demo .notificationsFrame .content .item .commentCount:hover:after {\n    color: lightblue;\n  }\n \n  .demo .notificationsFrame .footer {\n    position: relative;\n    background: #fff;\n    margin: auto;\n    height: 30px;\n    border-top: 1px solid #eee;\n    width: 100%;\n    border-radius: 10px;\n  }\n  .demo .notificationsFrame .footer button {\n    background: #eee;\n    position: absolute;\n    width: 100%;\n    right: 0px;\n    left: 0px;\n    top: 0px;\n    bottom: 0px;\n    border: 0;\n  }\n  .demo .notificationsFrame .footer button i {\n    margin: 0 10px;\n  }\n  .clock {\n    width: 600px;\n    height: 50px;\n    padding: 20px;\n    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    \n    font-weight: bold;\n    color: white;\n    font-size: 3em;\n    background-color:#3b5998;\n    border-radius: 10px;\n    text-align: center;\n\n  }", ""]);
 
 // exports
 
 
 /***/ }),
-/* 36 */
+/* 37 */
 /***/ (function(module, exports) {
 
 /*
@@ -18915,7 +18990,7 @@ function toComment(sourceMap) {
 
 
 /***/ }),
-/* 37 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -18971,7 +19046,7 @@ var singleton = null;
 var	singletonCounter = 0;
 var	stylesInsertedAtTop = [];
 
-var	fixUrls = __webpack_require__(38);
+var	fixUrls = __webpack_require__(39);
 
 module.exports = function(list, options) {
 	if (typeof DEBUG !== "undefined" && DEBUG) {
@@ -19287,7 +19362,7 @@ function updateLink (link, options, obj) {
 
 
 /***/ }),
-/* 38 */
+/* 39 */
 /***/ (function(module, exports) {
 
 
@@ -19380,77 +19455,6 @@ module.exports = function (css) {
 	return fixedCss;
 };
 
-
-/***/ }),
-/* 39 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(2);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Clock = function (_React$Component) {
-    _inherits(Clock, _React$Component);
-
-    function Clock(props) {
-        _classCallCheck(this, Clock);
-
-        var _this = _possibleConstructorReturn(this, (Clock.__proto__ || Object.getPrototypeOf(Clock)).call(this, props));
-
-        _this.state = {
-            date: new Date().toLocaleTimeString()
-        };
-        return _this;
-    }
-
-    _createClass(Clock, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-            var _this2 = this;
-
-            setInterval(function () {
-                return _this2.setState({
-                    date: new Date().toLocaleTimeString()
-                });
-            }, 1000);
-        }
-    }, {
-        key: 'render',
-        value: function render() {
-
-            return _react2.default.createElement(
-                'span',
-                null,
-                this.state.date
-            );
-        }
-    }]);
-
-    return Clock;
-}(_react2.default.Component);
-
-exports.default = Clock;
 
 /***/ })
 /******/ ]);
