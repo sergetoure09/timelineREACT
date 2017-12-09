@@ -9,6 +9,11 @@ class Content extends React.Component{
             activities:this.props.activities
         }
     }
+    componentWillMount(){
+        this.setState({
+            activities:[]
+        })
+    }
 
        
     render(){
