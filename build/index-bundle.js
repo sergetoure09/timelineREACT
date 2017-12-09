@@ -18312,16 +18312,48 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var App = function (_React$Component) {
   _inherits(App, _React$Component);
 
-  function App() {
+  function App(props) {
     _classCallCheck(this, App);
 
-    return _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
+
+    _this.state = {
+      activitie: _this.props.activities
+    };
+    return _this;
   }
 
   _createClass(App, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      this.setState({ activities: [{
+          key: 1,
+          user: {
+            alt: 'doug',
+            src: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+            name: ''
+          },
+          time: '10 am',
+          comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+          commentCount: 4
+
+        }, {
+          key: 2,
+          user: {
+            alt: 'Mark',
+            src: "http://www.croop.cl/UI/twitter/images/carl.jpg",
+            name: ''
+          },
+          time: '8 pm',
+          comment: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
+          commentCount: 9
+
+        }]
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
-      var activities = [];
 
       return _react2.default.createElement(
         'div',
@@ -18330,7 +18362,7 @@ var App = function (_React$Component) {
           'div',
           { className: 'panel' },
           _react2.default.createElement(_header2.default, { title: '' }),
-          _react2.default.createElement(_content2.default, { activities: activities }),
+          _react2.default.createElement(_content2.default, { activities: this.state.activities }),
           _react2.default.createElement(
             'div',
             { className: 'clock' },
@@ -18591,35 +18623,6 @@ var Content = function (_React$Component) {
     }
 
     _createClass(Content, [{
-        key: 'componentWillMount',
-        value: function componentWillMount() {
-            this.setState({
-                activities: [{
-                    key: 1,
-                    user: {
-                        alt: 'doug',
-                        src: "http://www.croop.cl/UI/twitter/images/doug.jpg",
-                        name: ''
-                    },
-                    time: '10 am',
-                    comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
-                    commentCount: 4
-
-                }, {
-                    key: 2,
-                    user: {
-                        alt: 'Mark',
-                        src: "http://www.croop.cl/UI/twitter/images/carl.jpg",
-                        name: ''
-                    },
-                    time: '8 pm',
-                    comment: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
-                    commentCount: 9
-
-                }]
-            });
-        }
-    }, {
         key: 'render',
         value: function render() {
 
