@@ -1003,7 +1003,7 @@ __webpack_require__(35);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var demo = document.querySelector(".demo");
-var clock = document.querySelector(".clock");
+
 _reactDom2.default.render(_react2.default.createElement(_app2.default, null), demo);
 
 /***/ }),
@@ -18318,7 +18318,9 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      activitie: _this.props.activities
+      title: _this.props.title,
+      activities: _this.props.activities
+
     };
     return _this;
   }
@@ -18326,7 +18328,9 @@ var App = function (_React$Component) {
   _createClass(App, [{
     key: 'componentWillMount',
     value: function componentWillMount() {
-      this.setState({ activities: [{
+      this.setState({
+        title: "Timeline activities",
+        activities: [{
           key: 1,
           user: {
             alt: 'doug',
@@ -18348,6 +18352,50 @@ var App = function (_React$Component) {
           comment: 'Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',
           commentCount: 9
 
+        }, {
+          key: 3,
+          user: {
+            alt: 'doug',
+            src: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+            name: ''
+          },
+          time: '10 am',
+          comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+          commentCount: 4
+
+        }, {
+          key: 4,
+          user: {
+            alt: 'doug',
+            src: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+            name: ''
+          },
+          time: '10 am',
+          comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+          commentCount: 4
+
+        }, {
+          key: 5,
+          user: {
+            alt: 'doug',
+            src: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+            name: ''
+          },
+          time: '10 am',
+          comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+          commentCount: 4
+
+        }, {
+          key: 6,
+          user: {
+            alt: 'doug',
+            src: "http://www.croop.cl/UI/twitter/images/doug.jpg",
+            name: ''
+          },
+          time: '10 am',
+          comment: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+          commentCount: 4
+
         }]
       });
     }
@@ -18361,7 +18409,7 @@ var App = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'panel' },
-          _react2.default.createElement(_header2.default, { title: '' }),
+          _react2.default.createElement(_header2.default, { title: this.state.title }),
           _react2.default.createElement(_content2.default, { activities: this.state.activities }),
           _react2.default.createElement(
             'div',
@@ -18432,14 +18480,6 @@ var Header = function (_React$Component) {
     }
 
     _createClass(Header, [{
-        key: 'componentDidMount',
-        value: function componentDidMount() {
-
-            this.setState({
-                title: "Timeline"
-            });
-        }
-    }, {
         key: 'render',
         value: function render() {
             return _react2.default.createElement(
@@ -18618,6 +18658,7 @@ var Content = function (_React$Component) {
 
         _this.state = {
             activities: _this.props.activities
+
         };
         return _this;
     }

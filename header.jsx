@@ -15,13 +15,8 @@ class Header extends React.Component{
         }
     
     }
-    componentDidMount(){
-       
-
-        this.setState({
-            title:"Timeline"
-        })
-    }
+   
+    
     render(){
         return(
             <div className="header">

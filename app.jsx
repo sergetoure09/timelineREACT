@@ -8,14 +8,18 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      activitie:this.props.activities
+      title:this.props.title,
+      activities:this.props.activities,
+      
     }
   }
 
 
 
   componentWillMount(){
-    this.setState({activities:[{
+    this.setState({
+      title:"Timeline activities",
+      activities:[{
         key:1,
         user:{
           alt:'doug',
@@ -40,6 +44,58 @@ class App extends React.Component{
         commentCount:9
 
 
+      },
+      {
+        key:3,
+        user:{
+          alt:'doug',
+          src:"http://www.croop.cl/UI/twitter/images/doug.jpg",
+          name:''
+        },
+        time:'10 am',
+        comment:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        commentCount:4
+
+
+      },
+      {
+        key:4,
+        user:{
+          alt:'doug',
+          src:"http://www.croop.cl/UI/twitter/images/doug.jpg",
+          name:''
+        },
+        time:'10 am',
+        comment:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        commentCount:4
+
+
+      },
+      {
+        key:5,
+        user:{
+          alt:'doug',
+          src:"http://www.croop.cl/UI/twitter/images/doug.jpg",
+          name:''
+        },
+        time:'10 am',
+        comment:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        commentCount:4
+
+
+      },
+      {
+        key:6,
+        user:{
+          alt:'doug',
+          src:"http://www.croop.cl/UI/twitter/images/doug.jpg",
+          name:''
+        },
+        time:'10 am',
+        comment:'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
+        commentCount:4
+
+
       }]
     })
   }
@@ -53,7 +109,7 @@ class App extends React.Component{
         return(
             <div className="notificationsFrame">
               <div className="panel">
-              <Header title=""/>
+              <Header title={this.state.title}/>
               <Content activities={this.state.activities}/>
               <div className="clock">
               <Clock />

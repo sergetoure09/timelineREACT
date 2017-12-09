@@ -7,10 +7,11 @@ class Content extends React.Component{
         super(props);
         this.state={
             activities:this.props.activities
+            
         }
     }
    
-       
+   
     render(){
         
         return(
@@ -21,6 +22,7 @@ class Content extends React.Component{
             {this.state.activities.map((activity)=> 
             <ActivityItem key={activity.key.toString()} activity={activity}/>
         )}
+       
           
        
 
