@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import MenuIcon from './menuicon.jsx'
 import Search from './search.jsx'
-
+import PropTypes from 'prop-types'
 
 
 
@@ -15,6 +15,8 @@ class Header extends React.Component{
         }
     
     }
+
+   
    
     
     render(){
@@ -30,6 +32,9 @@ class Header extends React.Component{
         )
     }
 }
+
+
+
 
 
 export default Header

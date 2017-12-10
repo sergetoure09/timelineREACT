@@ -18,7 +18,7 @@ class App extends React.Component{
 
   componentWillMount(){
     this.setState({
-      title:"Timeline activities",
+      title:"Timeline",
       activities:[{
         key:1,
         user:{
@@ -120,6 +120,8 @@ class App extends React.Component{
         )
     }
 }
+
+
 
 
 export default App
