@@ -16,14 +16,16 @@ class Header extends React.Component{
     
     }
 
-   
-   
-    
     render(){
+        const textstyle={
+                color:'white'
+            
+        }
+
         return(
             <div className="header">
                 <MenuIcon />
-                        <span className="title">{this.state.title}</span>
+                        <span style={textstyle} className="title">{this.state.title}</span>
                 <Search />
             
                         

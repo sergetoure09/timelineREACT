@@ -265,3 +265,6 @@ body{
     text-align: center;
 
   }
+  .header, .fa, .title, .searchIcon {
+    color: #333333;
+  }

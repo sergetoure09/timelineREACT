@@ -18486,13 +18486,18 @@ var Header = function (_React$Component) {
     _createClass(Header, [{
         key: 'render',
         value: function render() {
+            var textstyle = {
+                color: 'white'
+
+            };
+
             return _react2.default.createElement(
                 'div',
                 { className: 'header' },
                 _react2.default.createElement(_menuicon2.default, null),
                 _react2.default.createElement(
                     'span',
-                    { className: 'title' },
+                    { style: textstyle, className: 'title' },
                     this.state.title
                 ),
                 _react2.default.createElement(_search2.default, null)
@@ -18593,23 +18598,49 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Search = function (_React$Component) {
     _inherits(Search, _React$Component);
 
-    function Search() {
+    function Search(props) {
         _classCallCheck(this, Search);
 
-        return _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Search.__proto__ || Object.getPrototypeOf(Search)).call(this, props));
+
+        _this.state = {
+            searchInputClass: ["searchInput"],
+            searchVisibility: false
+        };
+        _this.handleClick = _this.handleClick.bind(_this);
+        return _this;
     }
 
     _createClass(Search, [{
+        key: 'handleClick',
+        value: function handleClick() {
+
+            if (!this.state.searchVisibility) {
+                this.setState(function (prevState) {
+                    return {
+                        searchInputClass: prevState.searchInputClass.push(':active')
+                    };
+                });
+            } else {
+                this.setState(function (prevState) {
+                    return {
+                        searchInputClass: prevState.searchInputClass.pop(':active')
+                    };
+                });
+            }
+        }
+    }, {
         key: 'render',
         value: function render() {
+
             return _react2.default.createElement(
                 'div',
                 null,
                 _react2.default.createElement('input', {
                     type: 'text',
-                    className: 'searchInput',
+                    className: this.state.searchInputClass.join(' '),
                     placeholder: 'Search ...' }),
-                _react2.default.createElement('div', { className: 'fa fa-search searchIcon' })
+                _react2.default.createElement('div', { className: 'fa fa-search searchIcon', onClick: this.handleClick })
             );
         }
     }]);
@@ -19594,7 +19625,7 @@ exports = module.exports = __webpack_require__(40)(undefined);
 
 
 // module
-exports.push([module.i, "body{\n  background-color: #F5F5F5;\n}\n.demo {\n    position: relative;\n    \n  }\n  .demo .notificationsFrame {\n    z-index: 2;\n    width: 70%;\n    top: 20px;\n    background: #fff;\n    border-radius: 3px;\n    overflow: hidden;\n    font-family: 'Open Sans', Helvetica, sans-serif;\n    margin: 0 auto;\n    border: 1px solid;\n    border-color: #e5e6e9 #dfe0e4 #d0d1d5;\n  }\n  .demo .notificationsFrame.show-menu {\n    transform: translate3d(150px, 0, 0);\n  }\n  .demo .notificationsFrame .searchInput {\n    border: 10px solid red;\n    box-sizing: border-box;\n    position: absolute;\n    top: 13px;\n    right: 55px;\n    width: 200px;\n    height: 34px;\n    border-radius: 17px;\n    border: none;\n    background: #fff;\n    padding: 0 17px;\n    font-size: 13px;\n    color: #666;\n    transition: all 0.3s ease-in-out;\n    transform: translateX(15px);\n    opacity: 0;\n    pointer-events: none;\n  }\n  .demo .notificationsFrame .searchInput:focus {\n    outline: none;\n  }\n  .demo .notificationsFrame .searchInput:active {\n    -webkit-transform: translateX(0);\n    transform: translateX(0);\n    opacity: 1;\n    pointer-events: all;\n  }\n  .demo .notificationsFrame .header {\n    position: relative;\n    height: 60px;\n    background: #3b5998;\n    padding-top: 0;\n  }\n \n  .demo .notificationsFrame .header .menuIcon {\n    position: absolute;\n    width: 29px;\n    height: 15px;\n    top: 23px;\n    left: 20px;\n    cursor: pointer;\n  }\n  .demo .notificationsFrame .header .menuIcon:hover .dashTop, .demo .notificationsFrame .header .menuIcon:hover .dashBottom, .demo .notificationsFrame .header .menuIcon:hover .circle {\n    background: #fff;\n  }\n  .demo .notificationsFrame .header .menuIcon .dashTop {\n    position: absolute;\n    width: 20px;\n    height: 3px;\n    top: 0;\n    left: 0;\n    background: #b2daff;\n    border-radius: 3px;\n    -webkit-transition: all 0.2s ease-in-out;\n    transition: all 0.2s ease-in-out;\n  }\n  .demo .notificationsFrame .header .menuIcon .dashBottom {\n    position: absolute;\n    width: 20px;\n    height: 3px;\n    top: 0;\n    left: 0;\n    background: #b2daff;\n    border-radius: 3px;\n    -webkit-transition: all 0.2s ease-in-out;\n    transition: all 0.2s ease-in-out;\n    width: 29px;\n    top: auto;\n    bottom: 0;\n  }\n  .demo .notificationsFrame .header .menuIcon .circle {\n    position: absolute;\n    height: 7px;\n    width: 7px;\n    border-radius: 4px;\n    top: -2px;\n    right: 0;\n    background: #b2daff;\n    -webkit-transition: all 0.2s ease-in-out;\n    transition: all 0.2s ease-in-out;\n  }\n  .demo .notificationsFrame .header .title {\n    display: block;\n    text-align: center;\n    color: #fff;\n    font-weight: 600;\n    font-size: 15px;\n    \n  }\n  .demo .notificationsFrame .header .searchIcon {\n    position: absolute;\n    z-index: 3;\n    font-size: 21px;\n    color: #fff;\n    top: 18px;\n    right: 20px;\n    -webkit-transition: all 0.3s ease;\n    transition: all 0.3s ease;\n    cursor: pointer;\n  }\n  .demo .notificationsFrame .header .searchIcon:hover {\n    color: #fff;\n  }\n  .demo .notificationsFrame .content {\n    position: relative;\n    height: 100%;\n    overflow: hidden;\n  }\n  .demo .notificationsFrame .content .line {\n    position: absolute;\n    top: 0;\n    left: 40px;\n    bottom: 0;\n    width: 3px;\n    background: #ebebeb;\n  }\n  .demo .notificationsFrame .content .item {\n    position: relative;\n    z-index: 2;\n    margin: 20px 30px 30px 70px;\n    display: block;\n    /*border-radius: 50%;\n     border: 5px solid #ecf0f1;\n     box-sizing: border-box;\n     position: absolute;\n     height: 20px;\n     width: 20px;\n     background: #fff;\n     border: 2px solid #5F98CD;\n     box-shadow: 0 0 0 3px #fff;*/\n  }\n  .demo .notificationsFrame .content .item:hover {\n    color: #5f98cd;\n    cursor: pointer;\n  }\n  .demo .notificationsFrame .content .item .circle {\n    box-sizing: border-box;\n    position: absolute;\n    height: 11px;\n    width: 11px;\n    background: #fff;\n    border: 2px solid #5f98cd;\n    box-shadow: 0 0 0 3px #fff;\n    border-radius: 6px;\n    top: 0;\n    left: -20px;\n  }\n  .demo .notificationsFrame .content .item .avatar {\n    position: absolute;\n    height: 40px;\n    width: 40px;\n    display: inline-block;\n    vertical-align: top;\n    overflow: hidden;\n    left: -49px;\n  }\n  .demo .notificationsFrame .content .item .avatar img {\n    width: 100%;\n    -webkit-border-radius: 50%;\n    -moz-border-radius: 50%;\n    -ms-border-radius: 50%;\n    -o-border-radius: 50%;\n    border-radius: 50%;\n    position: absolute;\n    left: 0;\n    top: 0;\n  }\n  .demo .notificationsFrame .content .item .time {\n    display: block;\n    font-size: 11px;\n    line-height: 11px;\n    margin-bottom: 2px;\n  }\n  .demo .notificationsFrame .content .item p {\n    font-size: 15px;\n    line-height: 20px;\n    margin: 0px 40px 0px 0px;\n    font-family: 'Open Sans', Lora, Times, no-serif;\n  }\n  .demo .notificationsFrame .content .item p b {\n    font-weight: 600;\n  }\n  .demo .notificationsFrame .content .item .right {\n    position: absolute;\n    right: 5px;\n    font-size: 11px;\n    top: 11px;\n  }\n  .demo .notificationsFrame .content .item .commentCount {\n    position: absolute;\n    right: 15px;\n    font-size: 12px;\n    top: 11px;\n  }\n  .demo .notificationsFrame .content .item .commentCount:after {\n    content: \"\\F075\";\n    font-family: FontAwesome;\n    position: absolute;\n    font-size: 20px;\n    color: #ebebeb;\n    top: -50%;\n    left: 100%;\n    margin-left: 10px;\n    z-index: 3;\n  }\n  .demo .notificationsFrame .content .item .commentCount:hover:after {\n    color: lightblue;\n  }\n \n  .demo .notificationsFrame .footer {\n    position: relative;\n    background: #fff;\n    margin: auto;\n    height: 30px;\n    border-top: 1px solid #eee;\n    width: 100%;\n    border-radius: 10px;\n  }\n  .demo .notificationsFrame .footer button {\n    background: #eee;\n    position: absolute;\n    width: 100%;\n    right: 0px;\n    left: 0px;\n    top: 0px;\n    bottom: 0px;\n    border: 0;\n  }\n  .demo .notificationsFrame .footer button i {\n    margin: 0 10px;\n  }\n  .clock {\n    width: 600px;\n    height: 50px;\n    padding: 20px;\n    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    \n    font-weight: bold;\n    color: white;\n    font-size: 3em;\n    background-color:#3b5998;\n    border-radius: 10px;\n    text-align: center;\n\n  }", ""]);
+exports.push([module.i, "body{\n  background-color: #F5F5F5;\n}\n.demo {\n    position: relative;\n    \n  }\n  .demo .notificationsFrame {\n    z-index: 2;\n    width: 70%;\n    top: 20px;\n    background: #fff;\n    border-radius: 3px;\n    overflow: hidden;\n    font-family: 'Open Sans', Helvetica, sans-serif;\n    margin: 0 auto;\n    border: 1px solid;\n    border-color: #e5e6e9 #dfe0e4 #d0d1d5;\n  }\n  .demo .notificationsFrame.show-menu {\n    transform: translate3d(150px, 0, 0);\n  }\n  .demo .notificationsFrame .searchInput {\n    border: 10px solid red;\n    box-sizing: border-box;\n    position: absolute;\n    top: 13px;\n    right: 55px;\n    width: 200px;\n    height: 34px;\n    border-radius: 17px;\n    border: none;\n    background: #fff;\n    padding: 0 17px;\n    font-size: 13px;\n    color: #666;\n    transition: all 0.3s ease-in-out;\n    transform: translateX(15px);\n    opacity: 0;\n    pointer-events: none;\n  }\n  .demo .notificationsFrame .searchInput:focus {\n    outline: none;\n  }\n  .demo .notificationsFrame .searchInput:active {\n    -webkit-transform: translateX(0);\n    transform: translateX(0);\n    opacity: 1;\n    pointer-events: all;\n  }\n  .demo .notificationsFrame .header {\n    position: relative;\n    height: 60px;\n    background: #3b5998;\n    padding-top: 0;\n  }\n \n  .demo .notificationsFrame .header .menuIcon {\n    position: absolute;\n    width: 29px;\n    height: 15px;\n    top: 23px;\n    left: 20px;\n    cursor: pointer;\n  }\n  .demo .notificationsFrame .header .menuIcon:hover .dashTop, .demo .notificationsFrame .header .menuIcon:hover .dashBottom, .demo .notificationsFrame .header .menuIcon:hover .circle {\n    background: #fff;\n  }\n  .demo .notificationsFrame .header .menuIcon .dashTop {\n    position: absolute;\n    width: 20px;\n    height: 3px;\n    top: 0;\n    left: 0;\n    background: #b2daff;\n    border-radius: 3px;\n    -webkit-transition: all 0.2s ease-in-out;\n    transition: all 0.2s ease-in-out;\n  }\n  .demo .notificationsFrame .header .menuIcon .dashBottom {\n    position: absolute;\n    width: 20px;\n    height: 3px;\n    top: 0;\n    left: 0;\n    background: #b2daff;\n    border-radius: 3px;\n    -webkit-transition: all 0.2s ease-in-out;\n    transition: all 0.2s ease-in-out;\n    width: 29px;\n    top: auto;\n    bottom: 0;\n  }\n  .demo .notificationsFrame .header .menuIcon .circle {\n    position: absolute;\n    height: 7px;\n    width: 7px;\n    border-radius: 4px;\n    top: -2px;\n    right: 0;\n    background: #b2daff;\n    -webkit-transition: all 0.2s ease-in-out;\n    transition: all 0.2s ease-in-out;\n  }\n  .demo .notificationsFrame .header .title {\n    display: block;\n    text-align: center;\n    color: #fff;\n    font-weight: 600;\n    font-size: 15px;\n    \n  }\n  .demo .notificationsFrame .header .searchIcon {\n    position: absolute;\n    z-index: 3;\n    font-size: 21px;\n    color: #fff;\n    top: 18px;\n    right: 20px;\n    -webkit-transition: all 0.3s ease;\n    transition: all 0.3s ease;\n    cursor: pointer;\n  }\n  .demo .notificationsFrame .header .searchIcon:hover {\n    color: #fff;\n  }\n  .demo .notificationsFrame .content {\n    position: relative;\n    height: 100%;\n    overflow: hidden;\n  }\n  .demo .notificationsFrame .content .line {\n    position: absolute;\n    top: 0;\n    left: 40px;\n    bottom: 0;\n    width: 3px;\n    background: #ebebeb;\n  }\n  .demo .notificationsFrame .content .item {\n    position: relative;\n    z-index: 2;\n    margin: 20px 30px 30px 70px;\n    display: block;\n    /*border-radius: 50%;\n     border: 5px solid #ecf0f1;\n     box-sizing: border-box;\n     position: absolute;\n     height: 20px;\n     width: 20px;\n     background: #fff;\n     border: 2px solid #5F98CD;\n     box-shadow: 0 0 0 3px #fff;*/\n  }\n  .demo .notificationsFrame .content .item:hover {\n    color: #5f98cd;\n    cursor: pointer;\n  }\n  .demo .notificationsFrame .content .item .circle {\n    box-sizing: border-box;\n    position: absolute;\n    height: 11px;\n    width: 11px;\n    background: #fff;\n    border: 2px solid #5f98cd;\n    box-shadow: 0 0 0 3px #fff;\n    border-radius: 6px;\n    top: 0;\n    left: -20px;\n  }\n  .demo .notificationsFrame .content .item .avatar {\n    position: absolute;\n    height: 40px;\n    width: 40px;\n    display: inline-block;\n    vertical-align: top;\n    overflow: hidden;\n    left: -49px;\n  }\n  .demo .notificationsFrame .content .item .avatar img {\n    width: 100%;\n    -webkit-border-radius: 50%;\n    -moz-border-radius: 50%;\n    -ms-border-radius: 50%;\n    -o-border-radius: 50%;\n    border-radius: 50%;\n    position: absolute;\n    left: 0;\n    top: 0;\n  }\n  .demo .notificationsFrame .content .item .time {\n    display: block;\n    font-size: 11px;\n    line-height: 11px;\n    margin-bottom: 2px;\n  }\n  .demo .notificationsFrame .content .item p {\n    font-size: 15px;\n    line-height: 20px;\n    margin: 0px 40px 0px 0px;\n    font-family: 'Open Sans', Lora, Times, no-serif;\n  }\n  .demo .notificationsFrame .content .item p b {\n    font-weight: 600;\n  }\n  .demo .notificationsFrame .content .item .right {\n    position: absolute;\n    right: 5px;\n    font-size: 11px;\n    top: 11px;\n  }\n  .demo .notificationsFrame .content .item .commentCount {\n    position: absolute;\n    right: 15px;\n    font-size: 12px;\n    top: 11px;\n  }\n  .demo .notificationsFrame .content .item .commentCount:after {\n    content: \"\\F075\";\n    font-family: FontAwesome;\n    position: absolute;\n    font-size: 20px;\n    color: #ebebeb;\n    top: -50%;\n    left: 100%;\n    margin-left: 10px;\n    z-index: 3;\n  }\n  .demo .notificationsFrame .content .item .commentCount:hover:after {\n    color: lightblue;\n  }\n \n  .demo .notificationsFrame .footer {\n    position: relative;\n    background: #fff;\n    margin: auto;\n    height: 30px;\n    border-top: 1px solid #eee;\n    width: 100%;\n    border-radius: 10px;\n  }\n  .demo .notificationsFrame .footer button {\n    background: #eee;\n    position: absolute;\n    width: 100%;\n    right: 0px;\n    left: 0px;\n    top: 0px;\n    bottom: 0px;\n    border: 0;\n  }\n  .demo .notificationsFrame .footer button i {\n    margin: 0 10px;\n  }\n  .clock {\n    width: 600px;\n    height: 50px;\n    padding: 20px;\n    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;    \n    font-weight: bold;\n    color: white;\n    font-size: 3em;\n    background-color:#3b5998;\n    border-radius: 10px;\n    text-align: center;\n\n  }\n  .header, .fa, .title, .searchIcon {\n    color: #333333;\n  }", ""]);
 
 // exports
 
