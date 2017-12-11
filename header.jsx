@@ -4,8 +4,6 @@ import MenuIcon from './menuicon.jsx'
 import Search from './search.jsx'
 import PropTypes from 'prop-types'
 
-
-
 class Header extends React.Component{
     constructor(props){
         super(props);
