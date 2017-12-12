@@ -10,6 +10,24 @@ class Content extends React.Component{
             
         }
     }
+
+   
+  componentWillMount(){
+    var url=('/timeline')
+    var request=new XMLHttpRequest()
+    request.open('GET',url)
+    request.responseType='json'
+    request.onload=()=>{
+      var resp=request.response
+      this.setState({
+        activities:resp
+       
+      })
+    }
+    request.send()
+  }
+     
+
    
    
     render(){

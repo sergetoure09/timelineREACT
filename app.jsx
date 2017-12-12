@@ -13,26 +13,12 @@ class App extends React.Component{
       
     }
   }
-
-
-
-  componentDidMount(){
-    var url=('/timeline')
-    var request=new XMLHttpRequest()
-    request.open('GET',url)
-    request.responseType='json'
-    request.onload=()=>{
-      this.setState({
-        activities:request.response,
-        title:"Timeline activities from python server backend",
-      })
-    }
-    request.send()
-  }
+  
 
     
 
     render(){
+     
       
       
         return(

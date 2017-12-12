@@ -6,7 +6,7 @@ import './index.css'
 
 var demo=document.querySelector(".demo")
 
-ReactDOM.render(<App />,demo)
+ReactDOM.render(<App title="python request"/>,demo)
 
 
 

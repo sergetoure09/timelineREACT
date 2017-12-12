@@ -1023,7 +1023,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var demo = document.querySelector(".demo");
 
-_reactDom2.default.render(_react2.default.createElement(_app2.default, null), demo);
+_reactDom2.default.render(_react2.default.createElement(_app2.default, { title: 'python request' }), demo);
 
 /***/ }),
 /* 17 */
@@ -18326,23 +18326,6 @@ var App = function (_React$Component) {
   }
 
   _createClass(App, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      var _this2 = this;
-
-      var url = '/timeline';
-      var request = new XMLHttpRequest();
-      request.open('GET', url);
-      request.responseType = 'json';
-      request.onload = function () {
-        _this2.setState({
-          activities: request.response,
-          title: "Timeline activities from python server backend"
-        });
-      };
-      request.send();
-    }
-  }, {
     key: 'render',
     value: function render() {
 
@@ -19292,6 +19275,24 @@ var Content = function (_React$Component) {
     }
 
     _createClass(Content, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            var _this2 = this;
+
+            var url = '/timeline';
+            var request = new XMLHttpRequest();
+            request.open('GET', url);
+            request.responseType = 'json';
+            request.onload = function () {
+                var resp = request.response;
+                _this2.setState({
+                    activities: resp
+
+                });
+            };
+            request.send();
+        }
+    }, {
         key: 'render',
         value: function render() {
 
