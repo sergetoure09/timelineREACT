@@ -14,6 +14,14 @@ class Content extends React.Component{
    
   componentWillMount(){
     var url=('/timeline')
+    fetch(url)
+    .then((resp)=>resp.json()
+    .then(resp=>{
+        this.setState({
+        activities:resp
+    })}))
+}
+    /*
     var request=new XMLHttpRequest()
     request.open('GET',url)
     request.responseType='json'
@@ -26,6 +34,7 @@ class Content extends React.Component{
     }
     request.send()
   }
+  */
      
 
    

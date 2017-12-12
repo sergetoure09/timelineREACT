@@ -1023,7 +1023,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var demo = document.querySelector(".demo");
 
-_reactDom2.default.render(_react2.default.createElement(_app2.default, { title: 'python request' }), demo);
+_reactDom2.default.render(_react2.default.createElement(_app2.default, null), demo);
 
 /***/ }),
 /* 17 */
@@ -18318,7 +18318,7 @@ var App = function (_React$Component) {
     var _this = _possibleConstructorReturn(this, (App.__proto__ || Object.getPrototypeOf(App)).call(this, props));
 
     _this.state = {
-      title: _this.props.title,
+      title: "python App",
       activities: []
 
     };
@@ -18410,6 +18410,13 @@ var Header = function (_React$Component) {
     }
 
     _createClass(Header, [{
+        key: 'componentWillMount',
+        value: function componentWillMount() {
+            this.setState({
+                title: "Hello serge"
+            });
+        }
+    }, {
         key: 'render',
         value: function render() {
             var textstyle = {
@@ -19280,18 +19287,29 @@ var Content = function (_React$Component) {
             var _this2 = this;
 
             var url = '/timeline';
-            var request = new XMLHttpRequest();
-            request.open('GET', url);
-            request.responseType = 'json';
-            request.onload = function () {
-                var resp = request.response;
-                _this2.setState({
-                    activities: resp
-
+            fetch(url).then(function (resp) {
+                return resp.json().then(function (resp) {
+                    _this2.setState({
+                        activities: resp
+                    });
                 });
-            };
-            request.send();
+            });
         }
+        /*
+        var request=new XMLHttpRequest()
+        request.open('GET',url)
+        request.responseType='json'
+        request.onload=()=>{
+          var resp=request.response
+          this.setState({
+            activities:resp
+           
+          })
+        }
+        request.send()
+        }
+        */
+
     }, {
         key: 'render',
         value: function render() {

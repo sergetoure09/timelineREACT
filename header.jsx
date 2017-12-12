@@ -13,6 +13,11 @@ class Header extends React.Component{
         }
     
     }
+    componentWillMount(){
+        this.setState({
+            title:"Hello serge"
+        })
+    }
 
     render(){
         const textstyle={
